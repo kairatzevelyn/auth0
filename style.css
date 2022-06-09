@@ -1,0 +1,369 @@
+/*===========================================================
+Fonts
+============================================================*/
+@font-face {
+    font-family: 'metropolis_bold';
+    src: url('fonts/metropolis_bold.eot');
+    src: url('fonts/metropolis_bold.eot') format('embedded-opentype'),
+        url('fonts/metropolis_bold.woff2') format('woff2'),
+        url('fonts/metropolis_bold.woff') format('woff'),
+        url('fonts/metropolis_bold.ttf') format('truetype'),
+        url('fonts/metropolis_bold.svg#metropolis_bold') format('svg');
+}
+
+@font-face {
+    font-family: 'metropolis_medium';
+    src: url('fonts/metropolis_medium.eot');
+    src: url('fonts/metropolis_medium.eot') format('embedded-opentype'),
+        url('fonts/metropolis_medium.woff2') format('woff2'),
+        url('fonts/metropolis_medium.woff') format('woff'),
+        url('fonts/metropolis_medium.ttf') format('truetype'),
+        url('fonts/metropolis_medium.svg#metropolis_medium') format('svg');
+}
+
+
+/*===========================================================
+ Common CSS
+============================================================*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;
+    font-family: 'metropolis_medium';
+    font-weight: 500;
+    color: #000;
+    background: #fff;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+li,
+li:hover,
+a:hover,
+.btn,
+.btn:hover {
+    transition: all .3s ease;
+}
+
+a:hover {
+    text-decoration: none !important;
+}
+
+*:active,
+*:focus {
+    outline: none;
+    border: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+strong {
+    font-weight: 700;
+}
+
+u {
+    border-bottom: 1px solid #fff;
+    line-height: 1;
+    text-decoration: unset;
+}
+
+button {
+    background-color: transparent;
+    border: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+button:active,
+button:focus {
+    outline: 0;
+    outline: 0;
+}
+
+
+
+/*===========================================================
+Login
+============================================================*/
+.wrapper {
+    margin-top: 50px;
+}
+
+.evelyn-area {
+    background: #fff url('img/bg.png');
+    width: 500px;
+    margin: 0 auto;
+    padding-bottom: 35px;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    box-shadow: 0 0 48px 0 rgba(29, 29, 29, 0.27);
+    border-radius: 82px;
+
+}
+
+.logo {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+
+.logo a {
+    display: block;
+}
+
+.logo a img {
+    height: 180px;
+}
+
+.wellcome-area {
+    background: #fff;
+    padding: 0 40px;
+    position: relative;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+}
+
+.wellcome-area:before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 300px;
+    background-image: url(img/wave.png);
+    left: 0;
+    top: -158px;
+}
+
+.wellcome-inner {
+    position: relative;
+    z-index: 2;
+
+}
+
+.wellcome-text {}
+
+.wellcome-text h2 {
+    font-size: 36px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.32;
+    letter-spacing: -2.08px;
+    color: #fb9318;
+    font-family: 'metropolis_bold';
+
+}
+
+.wellcome-text p {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.22;
+    letter-spacing: -1px;
+    font-style: italic;
+    color: #494848;
+    margin-top: 25px;
+    margin-bottom: 33px;
+}
+
+.single-form {
+    margin-bottom: 20px;
+}
+
+.single-form input {
+    width: 100%;
+    height: 66px;
+    box-shadow: 0 0 34px 0 rgba(29, 29, 29, 0.11);
+    background-color: #fff;
+    padding: 0;
+    border: 0;
+    padding: 0 35px;
+    border-radius: 35px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 0.8;
+    color: #494848;
+}
+
+::-webkit-input-placeholder {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 0.8;
+    color: #494848;
+    line-height: 68px;
+}
+
+:-ms-input-placeholder {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 0.8;
+    color: #494848;
+    line-height: 68px;
+}
+
+::placeholder {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 0.8;
+    color: #494848;
+    line-height: 68px;
+}
+
+.forget {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 27px;
+    margin-top: 25px;
+}
+
+.form-group label {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 0.74;
+    color: #494848;
+    cursor: pointer;
+
+}
+
+.forget a {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 0.68;
+    color: #494848;
+    text-decoration: none;
+}
+
+.sign-in button {
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: 0.63px;
+    color: #fff;
+    font-family: 'metropolis_bold';
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    line-height: 66px;
+    background-image: linear-gradient(to top, #fc7013, #fb9318);
+    border-radius: 35px;
+}
+
+.google button {
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 0.78;
+    letter-spacing: 0.51px;
+    color: #fff;
+    font-family: 'metropolis_bold';
+    width: 100%;
+    line-height: 66px;
+    box-shadow: 0 0 34px 0 rgba(29, 29, 29, 0.11);
+    background-color: #4285f4;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 35px;
+    position: relative;
+
+    margin-top: 10px;
+}
+
+.google {
+    position: relative;
+}
+
+.google img {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 8px;
+}
+
+.form p {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 0.82;
+    color: #494848;
+    text-align: center;
+    margin-top: 18px;
+}
+
+.form p a {
+    text-decoration: none;
+    color: #fb8311;
+}
+
+@media (max-width: 575px) {
+    .wrapper{
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .wellcome-area{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .evelyn-area{
+        max-width: 500px;
+        width: 100%;
+
+    }
+    .wellcome-text h2{
+        font-size: 36px;
+    }
+    .wellcome-text p{
+        font-size: 18px;
+    }
+    .single-form input{
+        font-size: 18px;
+        padding: 0 15px;
+        height: 50px;
+        /* line-height: 55px; */
+    }
+    .sign-in button{
+        font-size: 24px;
+    }
+    .google button{
+        font-size: 17px;
+    }
+    .logo img{
+        max-width: 100px;
+    }
+
+::-webkit-input-placeholder {
+    font-size: 18px;
+    line-height: 55px;
+}
+
+:-ms-input-placeholder {
+    font-size: 18px;
+    line-height: 55px;
+}
+
+::placeholder {
+    font-size: 18px;
+    line-height: 55px;
+}
+}
