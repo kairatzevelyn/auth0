@@ -131,7 +131,7 @@ Login
   height: 180px;
 }
 
-.wellcome-area {
+.welcome-area {
   background: #fff;
   padding: 0 40px;
   position: relative;
@@ -139,7 +139,7 @@ Login
   border-bottom-right-radius: 100px;
 }
 
-.wellcome-area:before {
+.welcome-area:before {
   position: absolute;
   content: '';
   width: 100%;
@@ -149,15 +149,15 @@ Login
   top: -158px;
 }
 
-.wellcome-inner {
+.welcome-inner {
   position: relative;
   z-index: 2;
 }
 
-.wellcome-text {
+.welcome-text {
 }
 
-.wellcome-text h2 {
+.welcome-text h2 {
   font-size: 36px;
   font-weight: bold;
   font-stretch: normal;
@@ -168,7 +168,7 @@ Login
   font-family: 'metropolis_bold';
 }
 
-.wellcome-text p {
+.welcome-text p {
   font-size: 18px;
   font-weight: 500;
   line-height: 1.22;
@@ -315,7 +315,7 @@ Login
     padding-left: 5px;
     padding-right: 5px;
   }
-  .wellcome-area {
+  .welcome-area {
     padding-left: 10px;
     padding-right: 10px;
   }
@@ -323,10 +323,10 @@ Login
     max-width: 500px;
     width: 100%;
   }
-  .wellcome-text h2 {
+  .welcome-text h2 {
     font-size: 36px;
   }
-  .wellcome-text p {
+  .welcome-text p {
     font-size: 18px;
   }
   .single-form input {

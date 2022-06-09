@@ -16,57 +16,141 @@
     <div class="wrapper">
       <div class="evelyn-area">
         <div class="logo">
-          <a href="#"><img src="img/logo.png" alt="logo" /></a>
+          <a href="#"><img src="https://kairatzevelyn.github.io/auth0/img/logo.png" alt="logo" /></a>
         </div>
-        <!-- /.logo -->
-        <div class="wellcome-area">
-          <div class="wellcome-inner">
-            <div class="wellcome-text">
+        <div class="welcome-area">
+          <div class="welcome-inner">
+            <div class="welcome-text">
               <h2>Welcome</h2>
               <p>Login to Evelyn to explore the world of healthcare</p>
             </div>
-            <!-- /.wellcome-text -->
             <div class="form">
-              <form action="#">
+              <form onsubmit="return false;" method="post">
                 <div class="single-form">
-                  <input type="email" placeholder="E-mail" />
-                </div>
-                <!-- /.single-form -->
+                  <input id="email" type="email" placeholder="E-mail" />
+                </div>    
                 <div class="single-form">
-                  <input type="text" placeholder="Password" />
-                </div>
-                <!-- /.single-form -->
+                  <input id="password" type="text" placeholder="Password" />
+                </div>    
                 <div class="forget">
                   <div class="form-group">
                     <input type="checkbox" id="check" />
                     <label for="check">Remember Me</label>
                   </div>
                   <a href="#">Forgot Password?</a>
-                </div>
-                <!-- /.forget -->
+                </div>    
+                <div class="captcha-container form-group"></div>
                 <div class="bttn">
                   <div class="sign-in">
-                    <button type="submit">SIGN IN</button>
-                  </div>
-                  <!-- /.sign-in -->
+                    <button id="btn-login" type="submit">SIGN IN</button>
+                  </div>        
                   <div class="google">
-                    <button type="submit">
-                      <img src="img/google.png" alt="google" /><span>Continue with Google</span>
+                    <button type="button" id="btn-google">
+                      <img src="https://kairatzevelyn.github.io/auth0/img/google.png" alt="google" /><span>Continue with Google</span>
                     </button>
-                  </div>
-                  <!-- /.goole -->
-                </div>
-                <!-- /.bttn -->
+                  </div>        
+                </div>    
               </form>
             </div>
-            <!-- /.form -->
           </div>
-          <!-- /.wellcome-inner -->
         </div>
-        <!-- /.wellcome-area -->
       </div>
-      <!-- /.evelyn-area -->
     </div>
-    <!-- /.wrapper -->
+    <script src="https://cdn.auth0.com/js/auth0/9.18/auth0.min.js"></script>
+    <script src="https://cdn.auth0.com/js/polyfills/1.0/object-assign.min.js"></script>
+    <script>
+      window.addEventListener('load', function () {
+        var config = JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))));
+
+        var leeway = config.internalOptions.leeway;
+        if (leeway) {
+          var convertedLeeway = parseInt(leeway);
+
+          if (!isNaN(convertedLeeway)) {
+            config.internalOptions.leeway = convertedLeeway;
+          }
+        }
+
+        var params = Object.assign(
+          {
+            overrides: {
+              __tenant: config.auth0Tenant,
+              __token_issuer: config.authorizationServer.issuer,
+            },
+            domain: config.auth0Domain,
+            clientID: config.clientID,
+            redirectUri: config.callbackURL,
+            responseType: 'code',
+          },
+          config.internalOptions
+        );
+
+        var webAuth = new auth0.WebAuth(params);
+        var databaseConnection = 'Username-Password-Authentication';
+        var captcha = webAuth.renderCaptcha(document.querySelector('.captcha-container'));
+
+        function login(e) {
+          e.preventDefault();
+          var button = this;
+          var username = document.getElementById('email').value;
+          var password = document.getElementById('password').value;
+          button.disabled = true;
+          webAuth.login(
+            {
+              realm: databaseConnection,
+              username: username,
+              password: password,
+              captcha: captcha.getValue(),
+            },
+            function (err) {
+              if (err) displayError(err);
+              button.disabled = false;
+            }
+          );
+        }
+
+        function signup() {
+          var button = this;
+          var email = document.getElementById('email').value;
+          var password = document.getElementById('password').value;
+
+          button.disabled = true;
+          webAuth.redirect.signupAndLogin(
+            {
+              connection: databaseConnection,
+              email: email,
+              password: password,
+              captcha: captcha.getValue(),
+            },
+            function (err) {
+              if (err) displayError(err);
+              button.disabled = false;
+            }
+          );
+        }
+
+        function loginWithGoogle() {
+          webAuth.authorize(
+            {
+              connection: 'google-oauth2',
+            },
+            function (err) {
+              if (err) displayError(err);
+            }
+          );
+        }
+
+        function displayError(err) {
+          captcha.reload();
+          var errorMessage = document.getElementById('error-message');
+          errorMessage.innerHTML = err.policy || err.description;
+          errorMessage.style.display = 'block';
+        }
+
+        document.getElementById('btn-login').addEventListener('click', login);
+        document.getElementById('btn-google').addEventListener('click', loginWithGoogle);
+        document.getElementById('btn-signup').addEventListener('click', signup);
+      });
+    </script>
   </body>
 </html>
