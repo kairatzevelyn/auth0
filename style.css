@@ -108,7 +108,7 @@ Login
 
 .evelyn-area {
   background: #fff url('img/bg.png');
-  width: 400px;
+  width: 450px;
   margin: 0 auto;
   padding-bottom: 35px;
   background-size: 100% auto;
@@ -320,7 +320,7 @@ Login
     padding-right: 10px;
   }
   .evelyn-area {
-    max-width: 400px;
+    max-width: 450px;
     width: 100%;
   }
   .welcome-text h2 {
