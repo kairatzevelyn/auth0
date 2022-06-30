@@ -69,12 +69,12 @@
             <div class="form">
               <form onsubmit="return false;" method="post">
                 <div class="single-form">
-                  <input id="email" type="email" placeholder="E-mail" />
+                  <input id="reset-email" type="email" placeholder="E-mail" required />
                 </div>
                 <div class="captcha-container form-group"></div>
                 <div class="bttn">
                   <div class="sign-in">
-                    <button id="btn-reset" type="button">RESET PASSWORD</button>
+                    <button id="btn-reset" type="submit">RESET PASSWORD</button>
                   </div>
                   <div class="back-sign-in">
                     <button id="back-to-login" type="button">BACK TO LOGIN</button>
@@ -166,11 +166,7 @@
 
         function resetPassword(e) {
           e.preventDefault();
-          var email = document.getElementById('email').value;
-          if (!email) {
-            alert('Please enter your email.');
-            return;
-          }
+          var email = document.getElementById('reset-email').value;
           webAuth.changePassword(
             {
               connection: databaseConnection,
@@ -198,6 +194,7 @@
         document.getElementById('btn-login').addEventListener('click', login);
         document.getElementById('btn-google').addEventListener('click', loginWithGoogle);
         document.getElementById('link-reset').addEventListener('click', forgotPassword);
+        document.getElementById('btn-reset').addEventListener('click', resetPassword);
         document.getElementById('back-to-login').addEventListener('click', backToLogin);
       });
     </script>
