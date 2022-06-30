@@ -16,7 +16,9 @@
     <div class="wrapper">
       <div class="evelyn-area">
         <div class="logo">
-          <a href="#"><img src="https://kairatzevelyn.github.io/auth0/img/logo.png" alt="logo" /></a>
+          <a href="#"
+            ><img src="https://kairatzevelyn.github.io/auth0/img/logo.png" alt="logo"
+          /></a>
         </div>
         <div class="welcome-area">
           <div class="welcome-inner">
@@ -28,28 +30,32 @@
               <form onsubmit="return false;" method="post">
                 <div class="single-form">
                   <input id="email" type="email" placeholder="E-mail" />
-                </div>    
+                </div>
                 <div class="single-form">
-                  <input id="password" type="text" placeholder="Password" />
-                </div>    
+                  <input id="password" type="password" placeholder="Password" />
+                </div>
                 <div class="forget">
                   <div class="form-group">
                     <input type="checkbox" id="check" />
                     <label for="check">Remember Me</label>
                   </div>
-                  <a href="#">Forgot Password?</a>
-                </div>    
+
+                  <a href="no-javascript1.html" id="link-reset">Forgot Password?</a>
+                </div>
                 <div class="captcha-container form-group"></div>
                 <div class="bttn">
                   <div class="sign-in">
                     <button id="btn-login" type="submit">SIGN IN</button>
-                  </div>        
+                  </div>
                   <div class="google">
                     <button type="button" id="btn-google">
-                      <img src="https://kairatzevelyn.github.io/auth0/img/google.png" alt="google" /><span>Continue with Google</span>
+                      <img
+                        src="https://kairatzevelyn.github.io/auth0/img/google.png"
+                        alt="google"
+                      /><span>Continue with Google</span>
                     </button>
-                  </div>        
-                </div>    
+                  </div>
+                </div>
               </form>
             </div>
           </div>
@@ -86,7 +92,9 @@
         );
 
         var webAuth = new auth0.WebAuth(params);
-        var databaseConnection = 'Username-Password-Authentication';
+        var databaseConnection = config.callbackURL.includes('github')
+          ? 'Github-Database'
+          : 'Username-Password-Authentication';
         var captcha = webAuth.renderCaptcha(document.querySelector('.captcha-container'));
 
         function login(e) {
@@ -109,26 +117,6 @@
           );
         }
 
-        function signup() {
-          var button = this;
-          var email = document.getElementById('email').value;
-          var password = document.getElementById('password').value;
-
-          button.disabled = true;
-          webAuth.redirect.signupAndLogin(
-            {
-              connection: databaseConnection,
-              email: email,
-              password: password,
-              captcha: captcha.getValue(),
-            },
-            function (err) {
-              if (err) displayError(err);
-              button.disabled = false;
-            }
-          );
-        }
-
         function loginWithGoogle() {
           webAuth.authorize(
             {
@@ -136,6 +124,30 @@
             },
             function (err) {
               if (err) displayError(err);
+            }
+          );
+        }
+
+        function resetPassword(e) {
+          e.preventDefault();
+          var email = document.getElementById('email').value;
+          if (!email) {
+            alert('Please enter your email.');
+            return;
+          }
+          webAuth.changePassword(
+            {
+              connection: databaseConnection,
+              email: email,
+            },
+            function (err, resp) {
+              if (err) {
+                console.log(err.message);
+                alert(err.message);
+              } else {
+                console.log(resp);
+                alert(resp);
+              }
             }
           );
         }
@@ -149,7 +161,7 @@
 
         document.getElementById('btn-login').addEventListener('click', login);
         document.getElementById('btn-google').addEventListener('click', loginWithGoogle);
-        document.getElementById('btn-signup').addEventListener('click', signup);
+        document.getElementById('link-reset').addEventListener('click', resetPassword);
       });
     </script>
   </body>
