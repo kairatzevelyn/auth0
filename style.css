@@ -119,6 +119,7 @@ Login
   background-repeat: no-repeat;
   box-shadow: 0 0 48px 0 rgba(29, 29, 29, 0.27);
   border-radius: 82px;
+  overflow: hidden;
 }
 
 .logo {
@@ -139,8 +140,8 @@ Login
   background: #fff;
   padding: 0 40px;
   position: relative;
-  border-bottom-left-radius: 100px;
-  border-bottom-right-radius: 100px;
+  /* border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px; */
 }
 
 .welcome-area:before {
@@ -326,6 +327,7 @@ Login
   .evelyn-area {
     max-width: 450px;
     width: 100%;
+    overflow: hidden;
   }
   .welcome-text h2 {
     font-size: 30px;
