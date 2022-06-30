@@ -20,7 +20,7 @@
             ><img src="https://kairatzevelyn.github.io/auth0/img/logo.png" alt="logo"
           /></a>
         </div>
-        <div class="welcome-area">
+        <div class="welcome-area" id="login-screen">
           <div class="welcome-inner">
             <div class="welcome-text">
               <h2>Welcome</h2>
@@ -54,6 +54,30 @@
                         alt="google"
                       /><span>Continue with Google</span>
                     </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="welcome-area" id="forgot-password-screen">
+          <div class="welcome-inner">
+            <div class="welcome-text">
+              <h2>Forgot Password?</h2>
+              <p>Enter your email and get update</p>
+            </div>
+            <div class="form">
+              <form onsubmit="return false;" method="post">
+                <div class="single-form">
+                  <input id="email" type="email" placeholder="E-mail" />
+                </div>
+                <div class="captcha-container form-group"></div>
+                <div class="bttn">
+                  <div class="sign-in">
+                    <button id="btn-reset" type="button">RESET PASSWORD</button>
+                  </div>
+                  <div class="sign-in">
+                    <button id="back-to-login" type="button">BACK TO LOGIN</button>
                   </div>
                 </div>
               </form>
@@ -128,6 +152,18 @@
           );
         }
 
+        function forgotPassword(e) {
+          e.preventDefault();
+          document.getElementById('forgot-password-screen').style.display = 'block';
+          document.getElementById('login-screen').style.display = 'none';
+        }
+
+        function backToLogin(e) {
+          e.preventDefault();
+          document.getElementById('forgot-password-screen').style.display = 'none';
+          document.getElementById('login-screen').style.display = 'block';
+        }
+
         function resetPassword(e) {
           e.preventDefault();
           var email = document.getElementById('email').value;
@@ -161,7 +197,8 @@
 
         document.getElementById('btn-login').addEventListener('click', login);
         document.getElementById('btn-google').addEventListener('click', loginWithGoogle);
-        document.getElementById('link-reset').addEventListener('click', resetPassword);
+        document.getElementById('link-reset').addEventListener('click', forgotPassword);
+        document.getElementById('back-to-login').addEventListener('click', backToLogin);
       });
     </script>
   </body>

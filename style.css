@@ -106,6 +106,10 @@ Login
   margin-top: 50px;
 }
 
+#forgot-password-screen {
+  display: none;
+}
+
 .evelyn-area {
   background: #fff url('img/bg.png');
   width: 450px;
