@@ -185,7 +185,7 @@ Login
 
 .single-form input {
   width: 100%;
-  height: 66px;
+  height: 50px;
   box-shadow: 0 0 34px 0 rgba(29, 29, 29, 0.11);
   background-color: #fff;
   padding: 0;
@@ -231,7 +231,7 @@ Login
 }
 
 .form-group label {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
   line-height: 0.74;
   color: #494848;
@@ -239,7 +239,7 @@ Login
 }
 
 .forget a {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
   line-height: 0.68;
   color: #494848;
@@ -248,7 +248,7 @@ Login
 
 .sign-in button {
   cursor: pointer;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
@@ -259,7 +259,7 @@ Login
   display: inline-block;
   text-align: center;
   text-decoration: none;
-  line-height: 66px;
+  line-height: 50px;
   background-image: linear-gradient(to top, #fc7013, #fb9318);
   border-radius: 35px;
 }
@@ -273,7 +273,7 @@ Login
   color: #fff;
   font-family: 'metropolis_bold';
   width: 100%;
-  line-height: 66px;
+  line-height: 50px;
   box-shadow: 0 0 34px 0 rgba(29, 29, 29, 0.11);
   background-color: #4285f4;
   display: inline-block;
@@ -324,39 +324,39 @@ Login
     width: 100%;
   }
   .welcome-text h2 {
-    font-size: 36px;
+    font-size: 30px;
   }
   .welcome-text p {
-    font-size: 18px;
+    font-size: 16px;
   }
   .single-form input {
     font-size: 18px;
     padding: 0 15px;
     height: 50px;
-    /* line-height: 55px; */
+    /* line-height: 50px; */
   }
   .sign-in button {
-    font-size: 24px;
+    font-size: 16px;
   }
   .google button {
-    font-size: 17px;
+    font-size: 15px;
   }
   .logo img {
     max-width: 100px;
   }
 
   ::-webkit-input-placeholder {
-    font-size: 18px;
-    line-height: 55px;
+    font-size: 16px;
+    line-height: 50px;
   }
 
   :-ms-input-placeholder {
-    font-size: 18px;
-    line-height: 55px;
+    font-size: 16px;
+    line-height: 50px;
   }
 
   ::placeholder {
-    font-size: 18px;
-    line-height: 55px;
+    font-size: 16px;
+    line-height: 50px;
   }
 }
