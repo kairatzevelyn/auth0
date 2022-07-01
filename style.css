@@ -284,7 +284,7 @@ Login
   text-align: center;
   text-decoration: none;
   line-height: 50px;
-  background-image: linear-gradient(to top, #bababa, #9a9a9a);
+  background-image: linear-gradient(to top, #9a9a9a, #bababa);
   border-radius: 35px;
 }
 
