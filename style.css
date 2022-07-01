@@ -106,6 +106,10 @@ Login
   margin-top: 50px;
 }
 
+#login-screen {
+  display: none;
+}
+
 #forgot-password-screen {
   display: none;
 }
@@ -197,14 +201,14 @@ Login
   border: 0;
   padding: 0 35px;
   border-radius: 35px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 0.8;
   color: #494848;
 }
 
 ::-webkit-input-placeholder {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 0.8;
   color: #494848;
@@ -212,7 +216,7 @@ Login
 }
 
 :-ms-input-placeholder {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 0.8;
   color: #494848;
@@ -220,7 +224,7 @@ Login
 }
 
 ::placeholder {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 0.8;
   color: #494848;
@@ -359,7 +363,7 @@ Login
     font-size: 16px;
   }
   .single-form input {
-    font-size: 18px;
+    font-size: 16px;
     padding: 0 15px;
     height: 50px;
     /* line-height: 50px; */

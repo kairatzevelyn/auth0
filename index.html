@@ -25,11 +25,39 @@
             ><img src="https://kairatzevelyn.github.io/auth0/img/logo.png" alt="logo"
           /></a>
         </div>
-        <div class="welcome-area" id="login-screen">
+        <div class="welcome-area" id="welcome-screen">
           <div class="welcome-inner">
             <div class="welcome-text">
               <h2>Welcome</h2>
               <p>Login to Evelyn to explore the world of healthcare</p>
+            </div>
+            <div class="form">
+              <form onsubmit="return false;" method="post">
+                <div class="single-form">
+                  <input id="email" type="email" placeholder="E-mail" />
+                </div>
+                <div class="bttn">
+                  <div class="sign-in">
+                    <button id="btn-login" type="submit">CONTINUE</button>
+                  </div>
+                  <hr />
+                  <div class="google">
+                    <button type="button" id="btn-google">
+                      <img
+                        src="https://kairatzevelyn.github.io/auth0/img/google.png"
+                        alt="google"
+                      /><span>Continue with Google</span>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="welcome-area" id="login-screen">
+          <div class="welcome-inner">
+            <div class="welcome-text">
+              <h2>Enter your password</h2>
             </div>
             <div class="form">
               <form onsubmit="return false;" method="post">
