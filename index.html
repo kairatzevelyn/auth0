@@ -9,6 +9,11 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
     />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
     <link rel="stylesheet" href="https://kairatzevelyn.github.io/auth0/style.css" />
   </head>
 
@@ -35,10 +40,7 @@
                   <input id="password" type="password" placeholder="Password" />
                 </div>
                 <div class="forget">
-                  <div class="form-group">
-                    <input type="checkbox" id="check" />
-                    <label for="check">Remember Me</label>
-                  </div>
+                  <div class="form-group"></div>
 
                   <a href="no-javascript1.html" id="link-reset">Forgot Password?</a>
                 </div>
@@ -88,6 +90,7 @@
     </div>
     <script src="https://cdn.auth0.com/js/auth0/9.18/auth0.min.js"></script>
     <script src="https://cdn.auth0.com/js/polyfills/1.0/object-assign.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script>
       window.addEventListener('load', function () {
         var config = JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))));
@@ -185,10 +188,15 @@
         }
 
         function displayError(err) {
+          Toastify({
+            text: err.description,
+            duration: 5000,
+            newWindow: true,
+            close: true,
+            stopOnFocus: true,
+            style: { background: '#e74c3c' },
+          }).showToast();
           captcha.reload();
-          var errorMessage = document.getElementById('error-message');
-          errorMessage.innerHTML = err.policy || err.description;
-          errorMessage.style.display = 'block';
         }
 
         document.getElementById('btn-login').addEventListener('click', login);

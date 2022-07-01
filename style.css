@@ -269,6 +269,10 @@ Login
   border-radius: 35px;
 }
 
+.sign-in button:disabled {
+  background-image: linear-gradient(to top, #9a9a9a, #bababa);
+}
+
 .back-sign-in button {
   cursor: pointer;
   font-size: 18px;
