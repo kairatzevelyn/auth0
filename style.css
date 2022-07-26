@@ -99,11 +99,32 @@ button:focus {
   outline: 0;
 }
 
-hr {
-  margin-top: 10px;
-  border: none;
-  height: 2px;
-  background: #dddddd;
+.sign-in-delimeter {
+  margin-top: 20px;
+  overflow: hidden;
+  text-align: center;
+  color: #ddd;
+}
+
+.sign-in-delimeter:before,
+.sign-in-delimeter:after {
+  background-color: #ddd;
+  content: '';
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  vertical-align: middle;
+  width: 50%;
+}
+
+.sign-in-delimeter:before {
+  right: 0.5em;
+  margin-left: -50%;
+}
+
+.sign-in-delimeter:after {
+  left: 0.5em;
+  margin-right: -50%;
 }
 
 /*===========================================================
@@ -168,9 +189,6 @@ Login
 .welcome-inner {
   position: relative;
   z-index: 2;
-}
-
-.welcome-text {
 }
 
 .welcome-text h2 {
@@ -303,36 +321,17 @@ Login
   border-radius: 35px;
 }
 
-.google button {
+.social-methods {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.social button {
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 0 1px 2px rgba(29, 29, 29, 0.11);
   cursor: pointer;
-  font-size: 20px;
-  font-weight: bold;
-  line-height: 0.78;
-  letter-spacing: 0.51px;
-  color: #fff;
-  font-family: 'metropolis_bold';
-  width: 100%;
-  line-height: 50px;
-  box-shadow: 0 0 34px 0 rgba(29, 29, 29, 0.11);
-  background-color: #4285f4;
-  display: inline-block;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 35px;
-  position: relative;
-
-  margin-top: 10px;
-}
-
-.google {
-  position: relative;
-}
-
-.google img {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 8px;
 }
 
 .form p {
@@ -378,7 +377,7 @@ Login
   .sign-in button {
     font-size: 16px;
   }
-  .google button {
+  .social button {
     font-size: 15px;
   }
   .logo img {
